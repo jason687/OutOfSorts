@@ -44,4 +44,28 @@ public class Sorts {
       data[miniIndex] = temp;
     }
   }
+
+  public static void insertionSort (int[] data) {
+    int temp1;
+    int temp2;
+    for (int i = 1; i < data.length; i++) {
+      for (int j = 0; j < i; j++) {
+        if (data[i] < data[j]) {
+          temp1 = data[i];
+          for (int k = j; k <= i; k++) {
+            temp2 = data[k];
+            data[k] = temp1;
+            temp1 = temp2;
+          }
+          data[j] = temp1;
+        }
+        // String str2 = "";
+        // for (int x = 0; x < data.length; x++) {
+        //   str2 += data[x] + ", ";
+        // }
+        // str2 = str2.substring(0, str2.length() - 2);
+        // System.out.println(str2);
+      }
+    }
+  }
 }
