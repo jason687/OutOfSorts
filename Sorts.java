@@ -46,25 +46,32 @@ public class Sorts {
   }
 
   public static void insertionSort (int[] data) {
-    int temp1;
-    int temp2;
+    int temp = 0;
+    int temp1 = 0;
     for (int i = 1; i < data.length; i++) {
-      for (int j = 0; j < i; j++) {
-        if (data[i] < data[j]) {
-          temp1 = data[i];
-          for (int k = j; k <= i; k++) {
-            temp2 = data[k];
-            data[k] = temp1;
-            temp1 = temp2;
+      for (int j = i; j >= 0; j--) {
+        if (data[i] > data[j]) {
+          temp = data[j];
+          data[j] = data[i];
+          for (int k = j + 1; k <= i; k++) {
+            temp1 = data[k];
+            data[k] = temp;
+            temp = temp1;
           }
-          data[j] = temp1;
+          j = -1;
         }
-        // String str2 = "";
-        // for (int x = 0; x < data.length; x++) {
-        //   str2 += data[x] + ", ";
-        // }
-        // str2 = str2.substring(0, str2.length() - 2);
-        // System.out.println(str2);
+        if (data[j] == data[i]) {
+          j = -1;
+        }
+        if (j == 0) {
+          temp = data[0];
+          data[0] = data[i];
+          for (int k = j + 1; k <= i; k++) {
+            temp1 = data[k];
+            data[k] = temp;
+            temp = temp1;
+          }
+        }
       }
     }
   }
