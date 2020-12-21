@@ -19,7 +19,7 @@ public class DemoRandom{
     }
     str1 = str1.substring(0, str1.length() - 2);
 
-    Sorts.selectionSort(listy);
+    Sorts.insertionSort(listy);
     for (int i = 0; i < listy.length; i++) {
       str2 += listy[i] + ", ";
     }
@@ -28,13 +28,13 @@ public class DemoRandom{
     System.out.println(str1);
     System.out.println(str2);
 
-    int[] listy1 = {1, 1, -3, -4, 0};
-    Sorts.selectionSort(listy1);
+    int[] listy1 = {4, 3, 2, 1};
+    Sorts.insertionSort(listy1);
     str2 = "";
     for (int i = 0; i < listy1.length; i++) {
       str2 += listy1[i] + ", ";
     }
-    str2 = str2.substring(0, str2.length() - 2);
+    str2 = str2.substring(0, str2.length());
     System.out.println(str2);
     //specified seed can be used to reproduce sequences
     // rng = new Random(100);//seed of 100 is stored.
