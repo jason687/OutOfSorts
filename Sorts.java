@@ -49,7 +49,7 @@ public class Sorts {
     int temp = 0;
     int temp1 = 0;
     for (int i = 1; i < data.length; i++) {
-      for (int j = i; j >= 0; j--) {
+      for (int j = i; j > -1; j--) {
         if (data[i] > data[j]) {
           temp = data[j];
           data[j] = data[i];
@@ -59,17 +59,26 @@ public class Sorts {
             temp = temp1;
           }
           j = -1;
-        }
-        if (data[j] == data[i]) {
-          j = -1;
-        }
-        if (j == 0) {
-          temp = data[0];
-          data[0] = data[i];
-          for (int k = j + 1; k <= i; k++) {
-            temp1 = data[k];
-            data[k] = temp;
-            temp = temp1;
+        } else {
+          if (data[j] == data[i] && j != i) {
+            temp = data[j];
+            data[j] = data[i];
+            for (int k = j + 1; k <= i; k++) {
+              temp1 = data[k];
+              data[k] = temp;
+              temp = temp1;
+            }
+            j = -1;
+          } else {
+            if (j == 0) {
+              temp = data[0];
+              data[0] = data[i];
+              for (int k = j + 1; k <= i; k++) {
+                temp1 = data[k];
+                data[k] = temp;
+                temp = temp1;
+              }
+            }
           }
         }
       }
